@@ -6,3 +6,10 @@ Pre-processing requirements:
 
 Required files:
 1. Download the dlib "shape_predictor_68_face_landmarks.dat" file.
+
+STEPS:
+1. For all images to be color-corrected, use a background removal tool (like the one mentioned above) to create a background-removed version.
+2. Generate a list of filenames for all images to be processed.
+3. The MATLAB code requires: (1) folder of full original images with .JPG ext, (2) folder of background-removed images with .PNG ext, (3) list of image filenames - must be the same across both sets of images (with only the extension different).
+4. Once images are color-corrected, use the Dlib_Cropping.py to crop the images.
+5. The color-corrected and cropped images will be used as input for automatedRating.py.

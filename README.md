@@ -13,3 +13,16 @@ STEPS:
 3. The MATLAB code requires: (1) folder of full original images with .JPG ext, (2) folder of background-removed images with .PNG ext, (3) list of image filenames - must be the same across both sets of images (with only the extension different).
 4. Once images are color-corrected, use the Dlib_Cropping.py to crop the images.
 5. The color-corrected and cropped images will be used as input for automatedRating.py.
+
+Please cite the paper below if you use the automated skin type classification script or steps here.
+
+# Analysis of Manual and Automated Skin Tone Assignments
+``` r
+@inproceedings{krishnapriya2022analysis,
+  title={Analysis of Manual and Automated Skin Tone Assignments},
+  author={Krishnapriya, KS and Pangelinan, Gabriella and King, Michael C and Bowyer, Kevin W},
+  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},
+  pages={429--438},
+  year={2022}
+}
+```

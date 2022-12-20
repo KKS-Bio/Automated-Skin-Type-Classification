@@ -81,6 +81,7 @@ def SkinThreshold(image):
                     red.append(img_BGR[i, j].item(2))
                 else:
                     img_BGR[i, j] = [0, 0, 0]
+        #Uncomment following line to visualize segmented image.
         #display_image(img_BGR, "final segmentation")
         return img_BGR
 
@@ -91,10 +92,9 @@ def skin_type(image):
     type_category = fitzpatrick_type(ita_score)
     return median, ita_score, type_category
 
-def all_images(CROPPED_FACE_IMAGES_PATH):
+def all_images(CROPPED_FACE_IMAGES_PATH,OUTPUT_PATH):
     count=0
-    #out_file_path = sys.argv[2]
-    out_file_path = '/home/gabby/Desktop/rawCropped/ccRatings.txt'
+    out_file_path = OUTPUT_PATH
     for f in glob.glob(os.path.join(CROPPED_FACE_IMAGES_PATH, "*.JPG")):
             count+=1
             o2 = open(out_file_path, 'a+')
@@ -107,6 +107,11 @@ def all_images(CROPPED_FACE_IMAGES_PATH):
             o2.write(str_to_write)
 
 if __name__ == '__main__':
-    #IMAGES_PATH = sys.argv[1]
-    IMAGES_PATH = '/home/gabby/Desktop/rawCropped'
-    all_images(IMAGES_PATH)
+    parser = argparse.ArgumentParser(description='Compute ITA & skin tone rating values for color-corrected, cropped face images.')
+    parser.add_argument('-images', '-i', help='Path to folder containing cropped images.')
+    parser.add_argument('-output', '-o', help='Path to output .txt file to save numeric ratings.')
+
+    args = parser.parse_args()
+    IMAGES_PATH = args.images
+    OUTPUT_PATH = args.output
+    all_images(IMAGES_PATH,OUTPUT_PATH)

@@ -11,8 +11,7 @@ output = open(outputFile, 'w')
 def test():
     root = tk.Tk()
     root.withdraw()
-    #dirname = tk.filedialog.askdirectory(parent=root, initialdir="./", title='Please select a directory')
-    dirname = '/home/gabby/Desktop/RatingsImgs_1871'
+    dirname = tk.filedialog.askdirectory(parent=root, initialdir="./", title='Please select a directory')
     root.destroy()
     return (dirname)
 

@@ -1,38 +1,14 @@
-%%Man/Auto Analysis Code Update w GNL Removal%%
-%%yes gabby this is the final final one you used lol%%
-
-%fid = fopen('CF_Filenames.txt');
-%tline  = fgetl(fid);
-%while ischar(tline)
-%list1 = fopen('AAM_1in2_Threshold_Filenames.txt','r');
-%list2 = fopen('AAM_1in10k_Threshold_Filenames.txt','r');
-%formatSpec = '%s';
-%1in2list = fscanf(list1,formatSpec);
-%1in10klist = fscanf(list2,formatSpec);
-%fclose(list1);
-%fclose(list2);
-
-%1in2list = readlines('AAM_1in2_Threshold_Filenames.txt')
-%1in10klist = readlines('AAM_1in10k_Threshold_Filenames.txt')
-
-%fid = fopen('AAM_1in10k_Threshold_Filenames.txt');
-fid = fopen('bookEx1.txt');
+fid = fopen('bookEx1.txt'); # CHANGE to: .txt list of names of original images (i.e. containing background, uncropped)
 tline  = fgetl(fid);
 while ischar(tline)
     tline = fgetl(fid);
-    %f1 = fullfile('MORPHImages/AAM_1in10k_Threshold',[tline '.JPG']);
-    %f2 = fullfile('MORPHImages/AAM_1in10k_BGRemoved',[tline '.png']);
-    f1 = fullfile('bookEx1',[tline '.JPG']);
-    f2 = fullfile('ExBGR',[tline '.png']);
+    f1 = fullfile('bookEx1',[tline '.JPG']); # CHANGE to: directory of original images
+    f2 = fullfile('ExBGR',[tline '.png']); # CHANGE to: directory of background-removed images
     if (tline ~= -1)
         % Read images
         a = imread(f1); %Original image   
         b = imread(f2); %Image without background
         bgOnly = imsubtract(a,b); %Background only
-        
-        % Check for sufficient background
-        % bgCheck = nnz(bgOnly);
-        % TODO: if insufficient, skip image
         
         % Compute linear version of image
         gamma = 2.2;
@@ -71,8 +47,7 @@ while ischar(tline)
         finB = linB_corr.^(1/2.2);
         finImg = cat(3,finR,finG,finB);
 
-        c = fullfile('ExFinal',[tline '.png']);
+        c = fullfile('ExFinal',[tline '.png']); # CHANGE to: directory to save corrected images in
         imwrite(finImg, c);  
-        fprintf("img done!")
     end
 end

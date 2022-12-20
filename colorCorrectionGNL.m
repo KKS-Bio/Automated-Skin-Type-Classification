@@ -1,9 +1,9 @@
-fid = fopen('bookEx1.txt'); # CHANGE to: .txt list of names of original images (i.e. containing background, uncropped)
+fid = fopen('bookEx1.txt'); % CHANGE to: .txt list of names of original images (i.e. containing background, uncropped)
 tline  = fgetl(fid);
 while ischar(tline)
     tline = fgetl(fid);
-    f1 = fullfile('bookEx1',[tline '.JPG']); # CHANGE to: directory of original images
-    f2 = fullfile('ExBGR',[tline '.png']); # CHANGE to: directory of background-removed images
+    f1 = fullfile('bookEx1',[tline '.JPG']); % CHANGE to: directory of original images
+    f2 = fullfile('ExBGR',[tline '.png']); % CHANGE to: directory of background-removed images
     if (tline ~= -1)
         % Read images
         a = imread(f1); %Original image   
@@ -47,7 +47,7 @@ while ischar(tline)
         finB = linB_corr.^(1/2.2);
         finImg = cat(3,finR,finG,finB);
 
-        c = fullfile('ExFinal',[tline '.png']); # CHANGE to: directory to save corrected images in
+        c = fullfile('ExFinal',[tline '.png']); % CHANGE to: directory to save corrected images in
         imwrite(finImg, c);  
     end
 end

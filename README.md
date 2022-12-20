@@ -16,7 +16,7 @@ STEPS:
 
 Please cite the paper below if you use the automated skin type classification script or steps here.
 
-# Analysis of Manual and Automated Skin Tone Assignments
+# [Analysis of Manual and Automated Skin Tone Assignments](https://openaccess.thecvf.com/content/WACV2022W/DVPB/papers/Krishnapriya_Analysis_of_Manual_and_Automated_Skin_Tone_Assignments_WACVW_2022_paper.pdf)
 ``` r
 @inproceedings{krishnapriya2022analysis,
   title={Analysis of Manual and Automated Skin Tone Assignments},
